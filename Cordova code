@@ -1,0 +1,71 @@
+
+Code using Cordova:
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="initial-scale=1, width=device-width, viewport- fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="css/index.css">
+<title>Hello World</title>
+<style>
+body {
+padding-top: 20px;
+}
+ 	.header {
+text-align: center;
+}
+ 	.login-form {
+max-width: 400px; margin: 0 auto;
+}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="container">
+<div class="header">
+<h2>Login</h2>
+</div>
+        <div class="login-form">
+<form id="loginForm">
+<div class="form-group">
+<label for="username">Username:</label>
+<input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+</div>
+<div class="form-group">
+<label for="password">Password:</label>
+<input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+</div>
+<button type="button" class="btn btn-link" id="resetButton">Reset</button>
+<button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+</form>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('deviceready', onDeviceReady, false);
+ 	function onDeviceReady() {
+// Add your device ready code here if needed.
+// For simplicity, we are not adding any device ready code in this example.
+}
+ 	document.getElementById('resetButton').addEventListener('click', function () { 
+document.getElementById('username').value = ''; document.getElementById('password').value = '';
+});
+ 	document.getElementById('loginForm').addEventListener('submit', function (e) { e.preventDefault();
+ 	  // Add your login logic here.
+var username = document.getElementById('username').value; var password = document.getElementById('password').value;
+ 
+// Example: Check if the username and password are not empty if (username.trim() === '' || password.trim() === '') {
+alert('Please enter both username and password.');
+} else {
+alert('Login successful!');
+// Add your navigation logic to another page or perform further actions.
+}
+});
+</script>
+<script src="cordova.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
